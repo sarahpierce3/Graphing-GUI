@@ -130,7 +130,7 @@ class Example(QMainWindow):
 
 class PlotCanvas(FigureCanvas):
 
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
+    def __init__(self, parent=None, width=7, height=4, dpi=100):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.fig = Figure()
         self.pltCanvas = FigureCanvas(self.fig)
@@ -155,17 +155,16 @@ class PlotCanvas(FigureCanvas):
         self.sfig1.set_xlim(1E7,1E9)
         self.sfig1.set_ylim(2.2,2.4)
         self.sfig2.set_ylim(-0.001,0.005)
-        self.sfig1.set_title('PyQt Matplotlib Example')
-        palphalist = [0.55, 0.35]
+        self.sfig1.set_title('\u03C9' +chr(8242) + ' & tan '+ chr(948))
         for i in range(len(datalist)):
             data = datalist[i]
-            print('data \n' + str(data))
             idata = idatalist[i]
             freqlist = [float(line[0]) for line in data[3:]]
             elist = [float(line[1]) for line in data[3:]]
             eilist = [float(line[1]) for line in idata[3:]]
             tandlist = [math.tan(eilist[n]/elist[n]) for n in range(0,len(elist))]
             pal = palphalist[i]
+            print(pal)
             self.sfig1.plot(freqlist, elist, color = 'b', alpha = pal)
             self.sfig2.plot(freqlist, tandlist, color = 'g', alpha = pal)
         
