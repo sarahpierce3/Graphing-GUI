@@ -155,7 +155,7 @@ class PlotCanvas(FigureCanvas):
         self.sfig1.set_xlim(1E7,1E9)
         self.sfig1.set_ylim(2.2,2.4)
         self.sfig2.set_ylim(-0.001,0.005)
-        self.sfig1.set_title('\u03C9' +chr(8242) + ' & tan '+ chr(948))
+        self.sfig1.set_title(chr(949) +chr(8242) + ' & tan '+ chr(948))
         for i in range(len(datalist)):
             data = datalist[i]
             idata = idatalist[i]
